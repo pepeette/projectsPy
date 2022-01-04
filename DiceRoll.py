@@ -51,6 +51,6 @@ while reply == "Y":
         print("|      |")
         print("--------")
         print("        ")
-    reply = input("Press Y to roll again")
+    reply = input("Press Y to roll again... ")
 
 
