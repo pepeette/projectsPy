@@ -6,32 +6,44 @@
 #source : name matching needs to be developped, can be a json file
 #to import json file : loads("data.json") from there https://github.com/JamesFT/Database-Quotes-JSON/blob/master/quotes.json
 import json
+from difflib import get_close_matches
 
 posts = json.load(open('quotes.json','r' , encoding='utf-8'))
 
-inp = input("Which author, would you like a quote from?   ")
+var = input("Which author, would you like a quote from?   ").capitalize()
 
-def var(inp):
-    inp.lower()
-    inp.title()
-    inp.capitalize()
-    return inp
+auth = []
+for i in posts['quotes']:
+    auth.append(i['author'])
 
-var = var(inp)
-print(var+" said: ")
+aut = get_close_matches(var, auth)
 
-def findquote(var):
+
+
+def findquote(aut):
     quote = []
     noquote = []
     for i in posts['quotes']:
-        if var in i['author']:
+        if aut in i['author']:
             quote.append(i['quote'])
         else:
-            noquote.append("...There's no quote :-(...")
+            noquote.append("...There's no official quote :-(...")
     if quote != []:
-        print(quote)
+        return quote
     else:
-        print(noquote[0])
+        return noquote[0]
 
-output = findquote(var)
+
+if aut != []:
+    print(aut[0]+" said: ")
+    output = findquote(aut[0])
+    if type(output) == list:
+        for item in output:
+            print(item)
+    else:
+        print(output)
+else:
+    print("No close match, try again")
+
+
 
