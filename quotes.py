@@ -4,7 +4,8 @@
 #attention, the prgme should be able to pick up even if mispell
 
 #source : name matching needs to be developped, can be a json file
-#to import json file : loads("data.json") from there https://github.com/JamesFT/Database-Quotes-JSON/blob/master/quotes.json
+#to import json file : loads("quotes.json") from there https://github.com/JamesFT/Database-Quotes-JSON/blob/master/quotes.json
+
 import json
 from difflib import get_close_matches
 
