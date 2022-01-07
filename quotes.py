@@ -47,4 +47,4 @@ else:
     print("No close match, try again")
 
 
-
+#it could work with dictionnary or translation
